@@ -13,6 +13,18 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+cloudSqlProxy:
+  image:
+    repository: gcr.io/cloud-sql-connectors/cloud-sql-proxy
+    pullPolicy: IfNotPresent
+    tag: ""
+  args:
+    # Cloud SQL instance connection name, e.g. hnt-argo-cd:us-central1:test-pg
+    # Format is PROJECT_ID:REGION:INSTANCE_ID
+    instanceConnectionName: ""
+
+serviceAccountName: ""
+
 # This is for the secretes for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
 # This is to override the chart name.

@@ -46,6 +46,16 @@ notificationService:
   image:
     tag: 33e06b3
   apnsTownsAppIdentifier: com.towns.internal
+  cloudSqlProxy:
+    image:
+      # It is recommended to use a specific version for production environments.
+      # See: https://github.com/GoogleCloudPlatform/cloudsql-proxy
+      tag: "latest"
+    args:
+      # todo: set this to the correct instance connection name
+      instanceConnectionName: hnt-live-gamma:us-central1:notifications-db-gamma
+  # todo: set this to the correct service account name
+  serviceAccountName: sa-notifications-service
 
 riverNode:
   image:
