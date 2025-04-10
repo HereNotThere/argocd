@@ -1,0 +1,84 @@
+{% set base_dd_tags = "env:" ~ global.environmentName ~ ", service: subgraph" %}
+
+image:
+  repository: "{{ subgraph.image.repository | default('towns-subgraph') }}"
+  tag: "{{ subgraph.image.tag | default('latest') }}"
+  pullPolicy: "{{ subgraph.image.pullPolicy | default('IfNotPresent') }}"
+
+service:
+  type: ClusterIP
+  port: 42069
+  targetPort: 42069
+
+ingress:
+  enabled: {{ subgraph.ingress.enabled | default('true') | lower }}
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/certificate-arn: {{ subgraph.ingress.certificateArn | default('') }}
+  hosts:
+    - host: "subgraph.{{ global.environmentName }}.towns.com"
+      paths:
+        - path: /*
+          pathType: ImplementationSpecific
+
+resources:
+  limits:
+    cpu: {{ subgraph.resources.limits.cpu | default(1) }}
+    memory: {{ subgraph.resources.limits.memory | default('2Gi') }}
+  requests:
+    cpu: {{ subgraph.resources.requests.cpu | default(0.5) }}
+    memory: {{ subgraph.resources.requests.memory | default('1Gi') }}
+
+# Environment variables
+env:
+  - name: RIVER_ENV
+    value: "{{ global.environmentName }}"
+  - name: PONDER_PORT
+    value: "42069"
+  - name: PONDER_ENVIRONMENT
+    value: "{{ global.environmentName }}"
+  - name: PONDER_RPC_URL_1
+    valueFrom:
+      secretKeyRef:
+        name: subgraph-secrets
+        key: rpc_url
+  - name: DATABASE_URL
+    valueFrom:
+      secretKeyRef:
+        name: subgraph-secrets
+        key: database_url
+
+# Health checks
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 42069
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+readinessProbe:
+  httpGet:
+    path: /ready
+    port: 42069
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+# Security settings
+podSecurityContext:
+  fsGroup: 1000
+
+securityContext:
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+
+# Node selector, affinity, and tolerations for pod assignment
+nodeSelector: {}
+tolerations: []
+affinity: {}

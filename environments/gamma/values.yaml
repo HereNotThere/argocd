@@ -39,6 +39,20 @@ riverNode:
       cpu: 0.5
       memory: 1.5Gi
 
+subgraph:
+  image:
+    tag: "d8bc67f"
+  ingress:
+    enabled: true
+    certificateArn: ""
+  resources:
+    requests:
+      cpu: 0.5
+      memory: 1.5Gi
+    limits:
+      cpu: 1
+      memory: 2Gi
+
 argocd:
   externalAccess:
     enabled: true
@@ -73,5 +87,8 @@ appOfApps:
       namespace: default
       disable: false
     - name: river-node
+      namespace: default
+      disable: false
+    - name: subgraph
       namespace: default
       disable: false

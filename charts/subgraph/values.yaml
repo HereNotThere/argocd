@@ -1,0 +1,108 @@
+# Default values for subgraph chart.
+# This is a YAML-formatted file.
+
+replicaCount: 1
+
+image:
+  repository: public.ecr.aws/h5v6m2x1/subgraph
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  fsGroup: 1000
+
+securityContext:
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 42069
+  targetPort: 42069
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+  hosts:
+    - host: subgraph.gamma.towns.com
+      paths:
+        - path: /*
+          pathType: ImplementationSpecific
+  tls: []
+
+certificate:
+  issuerName: "letsencrypt-prod"
+  issuerKind: "ClusterIssuer"
+
+resources:
+  limits:
+    cpu: 1
+    memory: 2Gi
+  requests:
+    cpu: 0.5
+    memory: 1Gi
+
+# Environment variables for the container
+env:
+  - name: RIVER_ENV
+    value: "gamma"
+  - name: PONDER_PORT
+    value: "42069"
+  - name: PONDER_ENVIRONMENT
+    value: "gamma"
+  - name: PONDER_RPC_URL_1
+    valueFrom:
+      secretKeyRef:
+        name: subgraph-secrets
+        key: rpc_url
+  - name: DATABASE_URL
+    valueFrom:
+      secretKeyRef:
+        name: subgraph-secrets
+        key: database_url
+
+# Secret values (these should be overridden in the actual deployment)
+secrets:
+  rpcUrl: "https://rpc-url-placeholder"
+  databaseUrl: "postgresql://user:password@hostname:5432/subgraph"
+
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 42069
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+readinessProbe:
+  httpGet:
+    path: /ready
+    port: 42069
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+nodeSelector: {}
+tolerations: []
+affinity: {} 

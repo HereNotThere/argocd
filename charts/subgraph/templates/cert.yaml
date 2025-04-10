@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "subgraph.fullname" . }}-cert
+  labels:
+    {{- include "subgraph.labels" . | nindent 4 }}
+spec:
+  secretName: {{ include "subgraph.fullname" . }}-tls
+  issuerRef:
+    name: {{ .Values.certificate.issuerName | default "letsencrypt-prod" }}
+    kind: {{ .Values.certificate.issuerKind | default "ClusterIssuer" }}
+  dnsNames:
+    - "subgraph.{{ .Values.global.environmentName }}.towns.com" 

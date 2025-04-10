@@ -92,3 +92,11 @@ appOfApps:
         - ./values.yaml
         - ../../environments/gamma/rendered/global.yaml
         - ../../environments/gamma/rendered/river-node.yaml
+
+    - name: subgraph
+      disable: false
+      namespace: default
+      valueFiles:
+        - ./values.yaml
+        - ../../environments/gamma/rendered/global.yaml
+        - ../../environments/gamma/rendered/subgraph.yaml

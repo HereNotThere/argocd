@@ -18,7 +18,8 @@ TEMPLATE_NAMES = (
   'metrics-aggregator',
   'xchain-monitor',
   'river-node',
-  'rpc-gateway'
+  'rpc-gateway',
+  'subgraph'
 )
 
 GENERATED_FILE_WARNING_MESSAGE = """############### WARNING ####################
