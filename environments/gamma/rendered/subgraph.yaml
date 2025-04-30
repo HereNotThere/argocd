@@ -4,7 +4,7 @@
 
 image:
   repository: "public.ecr.aws/h5v6m2x1/subgraph"
-  tag: "subgraph-41725-dev-1"
+  tag: "8eb0ee6"
   pullPolicy: "IfNotPresent"
 
 service:
@@ -44,6 +44,8 @@ env:
     value: "9378183"
   - name: PONDER_CONFIG
     value: "ponder.config.gamma.ts"
+  - name: NODE_ENV
+    value: "development"
 
 # Health checks
 livenessProbe:
