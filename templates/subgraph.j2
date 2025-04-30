@@ -42,6 +42,8 @@ env:
     value: "{{ subgraph.ponderStartBlock | default('100') }}"
   - name: PONDER_CONFIG
     value: "ponder.config.{{ global.environmentName }}.ts"
+  - name: NODE_ENV
+    value: "{{ subgraph.nodeEnv | default('development') }}"
 
 # Health checks
 livenessProbe:

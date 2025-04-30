@@ -38,6 +38,8 @@ spec:
           env:
             - name: RIVER_ENV
               value: {{ $.Values.global.environmentName | quote }}
+            - name: NODE_ENV
+              value: {{ $.Values.nodeEnv | quote }}
             - name: PONDER_PORT
               value: {{ .Values.ponderPort | default "42069" | quote }}
             - name: PONDER_ENVIRONMENT
