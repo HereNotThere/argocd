@@ -54,7 +54,7 @@ spec:
                   name: {{ .Values.secrets.name | default "subgraph-secrets" }}
                   key: base_chain_rpc_url
             - name: DATABASE_SCHEMA
-              value: "{{ $.Values.global.environmentName }}-1"
+              value: "{{ $.Values.global.environmentName }}-{{ .Values.image.tag | default .Chart.AppVersion }}"
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:

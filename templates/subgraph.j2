@@ -37,7 +37,7 @@ env:
         name: subgraph-secrets
         key: database_url
   - name: DATABASE_SCHEMA
-    value: "{{ global.environmentName }}-1"
+    value: "{{ global.environmentName }}-{{ subgraph.image.tag }}"
   - name: PONDER_START_BLOCK
     value: "{{ subgraph.ponderStartBlock | default('100') }}"
   - name: PONDER_CONFIG
