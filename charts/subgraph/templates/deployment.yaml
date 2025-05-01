@@ -47,7 +47,7 @@ spec:
             - name: PONDER_START_BLOCK
               value: {{ required "ponderStartBlock is required" $.Values.ponderStartBlock | quote }}
             - name: PONDER_CONFIG
-              value: "ponder.config.{{ .Values.environment | default "gamma" }}.ts"
+              value: "ponder.config.{{ $.Values.global.environmentName | default "gamma" }}.ts"
             - name: PONDER_RPC_URL_1
               valueFrom:
                 secretKeyRef:

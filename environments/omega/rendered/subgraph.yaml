@@ -4,7 +4,7 @@
 
 image:
   repository: "public.ecr.aws/h5v6m2x1/subgraph"
-  tag: "25572ed"
+  tag: "4842ea0"
   pullPolicy: "IfNotPresent"
 
 service:
@@ -14,11 +14,11 @@ service:
 
 resources:
   limits:
+    cpu: 1.5
+    memory: 20Gi
+  requests:
     cpu: 1
     memory: 2Gi
-  requests:
-    cpu: 0.5
-    memory: 1.5Gi
 
 # Environment variables
 env:
@@ -39,13 +39,13 @@ env:
         name: subgraph-secrets
         key: database_url
   - name: DATABASE_SCHEMA
-    value: "omega-25572ed"
+    value: "omega-4842ea0"
   - name: PONDER_START_BLOCK
-    value: "100"
+    value: "13777756"
   - name: PONDER_CONFIG
     value: "ponder.config.omega.ts"
   - name: NODE_ENV
-    value: "development"
+    value: "production"
 
 # Health checks
 livenessProbe:

@@ -44,14 +44,16 @@ riverNode:
 
 subgraph:
   image:
-    tag: "25572ed"
+    tag: "4842ea0"
+  ponderStartBlock: "13777756"
+  nodeEnv: "production"
   resources:
     requests:
-      cpu: 0.5
-      memory: 1.5Gi
-    limits:
       cpu: 1
       memory: 2Gi
+    limits:
+      cpu: 1.5
+      memory: 20Gi
 
 argocd:
   externalAccess:
@@ -102,7 +104,7 @@ appOfApps:
       disable: false
     - name: subgraph
       namespace: default
-      disable: true
+      disable: false
     - name: rpc-gateway
       namespace: default
       disable: false

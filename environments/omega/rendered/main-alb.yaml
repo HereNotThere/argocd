@@ -6,7 +6,7 @@ notificationService:
   disable: false
 
 subgraph:
-  disable: true
+  disable: false
 
 rpcGateway:
   disable: false
