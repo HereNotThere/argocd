@@ -44,7 +44,7 @@ riverNode:
 
 subgraph:
   image:
-    tag: "4842ea0"
+    tag: "8594494"
   ponderStartBlock: "13777756"
   nodeEnv: "production"
   resources:

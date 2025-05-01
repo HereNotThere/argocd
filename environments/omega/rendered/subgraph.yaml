@@ -4,7 +4,7 @@
 
 image:
   repository: "public.ecr.aws/h5v6m2x1/subgraph"
-  tag: "4842ea0"
+  tag: "8594494"
   pullPolicy: "IfNotPresent"
 
 service:
@@ -39,7 +39,7 @@ env:
         name: subgraph-secrets
         key: database_url
   - name: DATABASE_SCHEMA
-    value: "omega-4842ea0"
+    value: "omega-8594494"
   - name: PONDER_START_BLOCK
     value: "13777756"
   - name: PONDER_CONFIG
