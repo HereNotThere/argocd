@@ -92,4 +92,4 @@ resources:
     cpu: "2"
     memory: 10Gi
 
-riverRegistryPageSize: 5000
+riverRegistryPageSize: 3000
