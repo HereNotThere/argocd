@@ -11,7 +11,7 @@ podAnnotations:
 
 image:
   repository: "public.ecr.aws/h5v6m2x1/subgraph"
-  tag: "omega-52025-1"
+  tag: "subgraph-fix-52025"
   pullPolicy: "IfNotPresent"
 
 service:
