@@ -4,7 +4,7 @@
 
 nodeEnv: "production"
 
-ponderStartBlock: "28729500"
+ponderStartBlock: "13777756"
 
 podAnnotations:
   ad.datadoghq.com/subgraph.logs: '[{"service": "subgraph"}]'
