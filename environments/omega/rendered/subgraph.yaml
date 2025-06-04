@@ -11,7 +11,7 @@ podAnnotations:
 
 image:
   repository: "public.ecr.aws/h5v6m2x1/subgraph"
-  tag: "subgraph-convert-subgraph-ts-bigint"
+  tag: "e9de242"
   pullPolicy: "IfNotPresent"
 
 service:
