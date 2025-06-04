@@ -4,14 +4,14 @@
 
 nodeEnv: "production"
 
-ponderStartBlock: "13777756"
+ponderStartBlock: "28729500"
 
 podAnnotations:
   ad.datadoghq.com/subgraph.logs: '[{"service": "subgraph"}]'
 
 image:
   repository: "public.ecr.aws/h5v6m2x1/subgraph"
-  tag: "subgraph-060325-5f6a1288f0"
+  tag: "subgraph-convert-subgraph-ts-bigint"
   pullPolicy: "IfNotPresent"
 
 service:

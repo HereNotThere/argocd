@@ -49,8 +49,8 @@ riverNode:
 
 subgraph:
   image:
-    tag: "subgraph-060325-5f6a1288f0"
-  ponderStartBlock: "13777756"
+    tag: "subgraph-convert-subgraph-ts-bigint"
+  ponderStartBlock: "28729500"
   nodeEnv: "production"
   resources:
     requests:
