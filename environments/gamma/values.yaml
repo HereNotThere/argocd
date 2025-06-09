@@ -41,9 +41,11 @@ riverNode:
 
 subgraph:
   image:
-    tag: "e9de242"
+    tag: "subgraph-v11-159f0d4c21"
   ponderStartBlock: "9378183"
   nodeEnv: "development"
+  secrets:
+    name: "subgraph-secondary-secrets"
   resources:
     requests:
       cpu: 0.5

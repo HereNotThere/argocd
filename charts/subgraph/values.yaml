@@ -67,8 +67,10 @@ resources:
     cpu: 1
     memory: 8Gi
 
-# Secret values (these should be overridden in the actual deployment)
+# Secret configuration
 secrets:
+  # Name of the Kubernetes secret to create and reference in the deployment
+  name: "subgraph-secrets"
   rpcUrl: "https://rpc-url-placeholder"
   databaseUrl: "postgresql://user:password@hostname:5432/subgraph"
 

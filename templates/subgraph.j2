@@ -17,6 +17,9 @@ service:
   port: 80
   targetPort: 42069
 
+secrets:
+  name: "{{ subgraph.secrets.name | default('subgraph-secrets') }}"
+
 resources:
   limits:
     cpu: {{ subgraph.resources.limits.cpu | default(1) }}
