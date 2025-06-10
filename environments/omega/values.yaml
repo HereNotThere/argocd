@@ -49,7 +49,7 @@ riverNode:
 
 subgraph:
   image:
-    tag: "e9de242"
+    tag: "subgraph-v11-7cd49b2590"
   ponderStartBlock: "13777756"
   nodeEnv: "production"
   resources:
@@ -60,7 +60,7 @@ subgraph:
       cpu: 1.5
       memory: 20Gi
   secrets:
-    name:
+    name: "subgraph-secondary-secrets"
 
 argocd:
   externalAccess:

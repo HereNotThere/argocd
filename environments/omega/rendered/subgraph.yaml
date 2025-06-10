@@ -11,13 +11,16 @@ podAnnotations:
 
 image:
   repository: "public.ecr.aws/h5v6m2x1/subgraph"
-  tag: "e9de242"
+  tag: "subgraph-v11-7cd49b2590"
   pullPolicy: "IfNotPresent"
 
 service:
   type: ClusterIP
   port: 80
   targetPort: 42069
+
+secrets:
+  name: "subgraph-secondary-secrets"
 
 resources:
   limits:
