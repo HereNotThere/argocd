@@ -59,6 +59,8 @@ subgraph:
     limits:
       cpu: 1.5
       memory: 20Gi
+  secrets:
+    name:
 
 argocd:
   externalAccess:

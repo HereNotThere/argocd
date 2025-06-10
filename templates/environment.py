@@ -80,9 +80,14 @@ def run():
           f.write(rendered)
 
   for template_name in TEMPLATE_NAMES:
-    destination = f'{args.destination}/{template_name}.yaml'
-    template_file = f'{args.templates}/{template_name}.j2'
-    render_remplate(destination, template_file)
+    try:
+      destination = f'{args.destination}/{template_name}.yaml'
+      template_file = f'{args.templates}/{template_name}.j2'
+      print('rendering template', template_name)
+      render_remplate(destination, template_file)
+    except Exception as e:
+      print(f'Error rendering template {template_name}: {e}')
+      raise e
     
 
 run()

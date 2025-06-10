@@ -60,6 +60,8 @@ subgraph:
   ponderPort: 80
   ponderStartBlock: "22890725"
   nodeEnv: "development"
+  secrets:
+    name:
   resources:
     requests:
       cpu: 0.5

@@ -43,6 +43,8 @@ subgraph:
     limits:
       cpu: 1
       memory: 2Gi
+  secrets:
+    name:
 
 appRegistryService:
   image:
