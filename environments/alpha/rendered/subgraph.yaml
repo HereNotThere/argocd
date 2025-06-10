@@ -19,6 +19,9 @@ service:
   port: 80
   targetPort: 42069
 
+secrets:
+  name: "None"
+
 resources:
   limits:
     cpu: 1
