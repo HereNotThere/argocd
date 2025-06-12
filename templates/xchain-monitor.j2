@@ -1,0 +1,4 @@
+image:
+  tag: "{{ xchainMonitor.image.tag }}"
+resources:
+  {{ xchainMonitor.resources | to_yaml | indent(2) }}

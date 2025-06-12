@@ -32,8 +32,7 @@ spec:
         - name: xchain-monitor
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          # TODO: remove hardcoded image
-          image: "{{ .Values.image.repository }}:latest"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
