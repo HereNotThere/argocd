@@ -88,6 +88,17 @@ appRegistryService:
       cpu: 1
       memory: 2Gi
 
+xchainMonitor:
+  image:
+    tag: "latest"
+  resources:
+    limits:
+      cpu: 1
+      memory: 6Gi
+    requests:
+      cpu: 1
+      memory: 5Gi
+
 appOfApps:
   applications:
   - name: argocd
