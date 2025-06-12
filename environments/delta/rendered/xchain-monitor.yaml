@@ -11,3 +11,5 @@ resources:
   requests:
     cpu: 0.4
     memory: 4Gi
+
+ddTags: "env:delta, service: xchain-monitor"

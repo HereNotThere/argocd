@@ -1,4 +1,8 @@
+{% set base_dd_tags = "env:" ~ global.environmentName ~ ", service: xchain-monitor" %}
+
 image:
   tag: "{{ xchainMonitor.image.tag }}"
 resources:
   {{ xchainMonitor.resources | to_yaml | indent(2) }}
+
+ddTags: "{{ base_dd_tags}}"

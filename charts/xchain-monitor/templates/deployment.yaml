@@ -56,6 +56,8 @@ spec:
               value: "info"
             - name: LOG_PRETTY
               value: "false"
+            - name: DD_TAGS
+              value: {{ .Values.ddTags | quote }}
             - name: BLOCK_SCAN_CHUNK_SIZE
               value: "10000"
       {{- with .Values.nodeSelector }}
