@@ -58,6 +58,8 @@ spec:
               value: "false"
             - name: DD_TAGS
               value: {{ .Values.ddTags | quote }}
+            - name: DD_AGENT_HOST
+              value: "datadog.datadog.svc.cluster.local"
             - name: BLOCK_SCAN_CHUNK_SIZE
               value: "10000"
       {{- with .Values.nodeSelector }}
