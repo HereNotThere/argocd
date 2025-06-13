@@ -27,6 +27,13 @@ prometheus:
     # httpGet: #TODO: fix this
     #   path: /
     #   port: http
+  resources:
+    limits:
+      cpu: 1.5
+      memory: 8Gi
+    requests:
+      cpu: 1
+      memory: 2Gi
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
@@ -56,6 +63,14 @@ podLabels: {}
 podSecurityContext:
   {}
   # fsGroup: 2000
+
+resources:
+  limits:
+    cpu: 1.5
+    memory: 5Gi
+  requests:
+    cpu: 1
+    memory: 2Gi
 
 securityContext:
   {}

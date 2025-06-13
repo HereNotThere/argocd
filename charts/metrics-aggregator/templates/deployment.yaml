@@ -65,6 +65,8 @@ spec:
           volumeMounts:
             - name: prometheus-etc
               mountPath: /river/packages/metrics-discovery/prometheus/etc
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
         - name: prometheus
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -77,6 +79,8 @@ spec:
           volumeMounts:
             - name: prometheus-etc
               mountPath: /prometheus/etc
+          resources:
+            {{- toYaml .Values.prometheus.resources | nindent 12 }}
           command:
             - /bin/prometheus
           args:
