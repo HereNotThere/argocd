@@ -54,10 +54,10 @@ subgraph:
   nodeEnv: "production"
   resources:
     requests:
-      cpu: 2
+      cpu: 1.5
       memory: 10Gi
     limits:
-      cpu: 4
+      cpu: 3
       memory: 35Gi
   secrets:
     name: "subgraph-secondary-secrets"

@@ -24,10 +24,10 @@ secrets:
 
 resources:
   limits:
-    cpu: 4
+    cpu: 3
     memory: 35Gi
   requests:
-    cpu: 2
+    cpu: 1.5
     memory: 10Gi
 
 # Health checks
