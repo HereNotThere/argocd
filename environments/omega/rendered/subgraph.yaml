@@ -11,7 +11,7 @@ podAnnotations:
 
 image:
   repository: "public.ecr.aws/h5v6m2x1/subgraph"
-  tag: "subgraph-v11-7cd49b2590"
+  tag: "3798da8"
   pullPolicy: "IfNotPresent"
 
 service:
@@ -24,11 +24,11 @@ secrets:
 
 resources:
   limits:
-    cpu: 1.5
-    memory: 20Gi
+    cpu: 4
+    memory: 35Gi
   requests:
-    cpu: 1
-    memory: 5Gi
+    cpu: 2
+    memory: 10Gi
 
 # Health checks
 # livenessProbe:

@@ -49,16 +49,16 @@ riverNode:
 
 subgraph:
   image:
-    tag: "subgraph-v11-7cd49b2590"
+    tag: "3798da8"
   ponderStartBlock: "13777756"
   nodeEnv: "production"
   resources:
     requests:
-      cpu: 1
-      memory: 5Gi
+      cpu: 2
+      memory: 10Gi
     limits:
-      cpu: 1.5
-      memory: 20Gi
+      cpu: 4
+      memory: 35Gi
   secrets:
     name: "subgraph-secondary-secrets"
 
