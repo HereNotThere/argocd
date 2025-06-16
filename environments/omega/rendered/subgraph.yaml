@@ -5,14 +5,14 @@
 nodeEnv: "production"
 
 ponderStartBlock: "13777756"
-ponderLogLevel: "trace"
+ponderLogLevel: "debug"
 
 podAnnotations:
   ad.datadoghq.com/subgraph.logs: '[{"service": "subgraph"}]'
 
 image:
   repository: "public.ecr.aws/h5v6m2x1/subgraph"
-  tag: "3798da8"
+  tag: "49d065a"
   pullPolicy: "IfNotPresent"
 
 service:

@@ -41,9 +41,9 @@ riverNode:
 
 subgraph:
   image:
-    tag: "3798da8"
+    tag: "49d065a"
   ponderStartBlock: "9378183"
-  ponderLogLevel: "trace"
+  ponderLogLevel: "debug"
   nodeEnv: "development"
   secrets:
     name: "subgraph-secondary-secrets"
