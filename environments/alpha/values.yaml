@@ -59,6 +59,7 @@ subgraph:
   environment: gamma
   ponderPort: 80
   ponderStartBlock: "22890725"
+  ponderLogLevel: "debug"
   nodeEnv: "development"
   secrets:
     name:

@@ -22,6 +22,7 @@ serviceAccount:
   name: ""
 
 ponderStartBlock: "9378183"
+ponderLogLevel: "info"
 podAnnotations: {}
 
 podSecurityContext:

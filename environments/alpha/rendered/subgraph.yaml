@@ -5,6 +5,7 @@
 nodeEnv: "development"
 
 ponderStartBlock: "22890725"
+ponderLogLevel: "debug"
 
 podAnnotations:
   ad.datadoghq.com/subgraph.logs: '[{"service": "subgraph"}]'

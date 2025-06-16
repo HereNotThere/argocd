@@ -5,6 +5,7 @@
 nodeEnv: "production"
 
 ponderStartBlock: ""
+ponderLogLevel: "info"
 
 podAnnotations:
   ad.datadoghq.com/subgraph.logs: '[{"service": "subgraph"}]'

@@ -51,6 +51,7 @@ subgraph:
   image:
     tag: "3798da8"
   ponderStartBlock: "13777756"
+  ponderLogLevel: "trace"
   nodeEnv: "production"
   resources:
     requests:

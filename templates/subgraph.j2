@@ -3,6 +3,9 @@
 nodeEnv: "{{ subgraph.nodeEnv | default('production') }}"
 
 ponderStartBlock: "{{ subgraph.ponderStartBlock }}"
+ponderLogLevel: "{{ subgraph.ponderLogLevel | default('info') }}"
+
+
 
 podAnnotations:
   ad.datadoghq.com/subgraph.logs: '[{"service": "subgraph"}]'

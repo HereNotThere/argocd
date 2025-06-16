@@ -43,6 +43,7 @@ subgraph:
   image:
     tag: "3798da8"
   ponderStartBlock: "9378183"
+  ponderLogLevel: "trace"
   nodeEnv: "development"
   secrets:
     name: "subgraph-secondary-secrets"

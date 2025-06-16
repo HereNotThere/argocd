@@ -46,6 +46,8 @@ spec:
               value: {{ $.Values.global.environmentName | quote }}
             - name: PONDER_START_BLOCK
               value: {{ required "ponderStartBlock is required" $.Values.ponderStartBlock | quote }}
+            - name: PONDER_LOG_LEVEL
+              value: {{ $.Values.ponderLogLevel | default "info" | quote }}
             - name: PONDER_CONFIG
               value: "ponder.config.{{ $.Values.global.environmentName | default "gamma" }}.ts"
             - name: PONDER_RPC_URL_1
