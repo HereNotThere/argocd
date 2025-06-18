@@ -12,7 +12,7 @@ podAnnotations:
 
 image:
   repository: "public.ecr.aws/h5v6m2x1/subgraph"
-  tag: "9ed65e0"
+  tag: "subgraph-61825-de4693cadb"
   pullPolicy: "IfNotPresent"
 
 service:
