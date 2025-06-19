@@ -28,7 +28,7 @@ notificationService:
 
 riverNode:
   image:
-    tag: "e0faedc"
+    tag: "0e17bd2"
   numStreamNodes: 11
   numArchiveNodes: 0
   riverRegistryPageSize: 1500
