@@ -16,7 +16,7 @@ chains:
 
 notificationService:
   image:
-    tag: "e1d299cc"
+    tag: "8709059"
   resources:
     limits:
       cpu: 6.0
