@@ -29,7 +29,7 @@ notificationService:
 
 riverNode:
   image:
-    tag: "bb91fbb"
+    tag: "14416fa"
   numStreamNodes: 10
   numArchiveNodes: 0
 
