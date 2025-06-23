@@ -57,7 +57,7 @@ subgraph:
 
 appRegistryService:
   image:
-    tag: "fc753cf"
+    tag: "0f15a50"
   resources:
     requests:
       cpu: 0.5
