@@ -95,7 +95,7 @@ RPC Gateway domain name
 App Registry Service domain name
 */}}
 {{- define "app-registry-service.domainName" -}}
-{{- printf "app-registry-service-%s.towns.com" .Values.global.environmentName }}
+{{- printf "app-registry.%s.towns.com" .Values.global.environmentName }}
 {{- end }}
 
 {{/*

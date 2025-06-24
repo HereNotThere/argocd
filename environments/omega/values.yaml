@@ -157,4 +157,4 @@ appOfApps:
     disable: false
   - name: app-registry-service
     namespace: default
-    disable: true
+    disable: false
