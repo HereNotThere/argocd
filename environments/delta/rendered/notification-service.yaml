@@ -4,7 +4,7 @@
 
 apnsTownsAppIdentifier: com.towns.ios.delta
 image:
-  tag: "cb6ef64"
+  tag: "cefe5af"
 resources:
   limits:
     cpu: 1
