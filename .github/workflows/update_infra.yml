@@ -21,16 +21,19 @@ on:
         description: "riverNode.image.tag"
         type: string
         required: false
-
       appRegistryServiceImageTag:
         description: "appRegistryService.image.tag"
         type: string
         required: false
-
       rpcGatewayImageTag:
         description: "rpcGateway.image.tag"
         type: string
         required: false
+      subgraphImageTag:
+        description: "subgraph.image.tag"
+        type: string
+        required: false
+
   repository_dispatch:
     types: [update-infra]
 
@@ -73,6 +76,7 @@ jobs:
             RIVER_NODE_IMAGE_TAG="${{ github.event.inputs.riverNodeImageTag }}"
             APP_REGISTRY_SERVICE_IMAGE_TAG="${{ github.event.inputs.appRegistryServiceImageTag }}"
             RPC_GATEWAY_IMAGE_TAG="${{ github.event.inputs.rpcGatewayImageTag }}"
+            SUBGRAPH_IMAGE_TAG="${{ github.event.inputs.subgraphImageTag }}"
 
           elif [[ "${{ github.event_name }}" == "repository_dispatch" ]]; then
             echo "Repository dispatch event detected"
@@ -81,6 +85,7 @@ jobs:
             RIVER_NODE_IMAGE_TAG="${{ github.event.client_payload.riverNodeImageTag }}"
             APP_REGISTRY_SERVICE_IMAGE_TAG="${{ github.event.client_payload.appRegistryServiceImageTag }}"
             RPC_GATEWAY_IMAGE_TAG="${{ github.event.client_payload.rpcGatewayImageTag }}"
+            SUBGRAPH_IMAGE_TAG="${{ github.event.client_payload.subgraphImageTag }}"
           else
             echo "Unknown event type: ${{ github.event_name }}, exiting"
             exit 1
@@ -112,6 +117,11 @@ jobs:
           # if the rpc gateway tag is set
           if [[ -n "$RPC_GATEWAY_IMAGE_TAG" ]]; then
             VALUES="$VALUES rpcGateway.image.tag=$RPC_GATEWAY_IMAGE_TAG"
+          fi
+
+          # if the subgraph tag is set
+          if [[ -n "$SUBGRAPH_IMAGE_TAG" ]]; then
+            VALUES="$VALUES subgraph.image.tag=$SUBGRAPH_IMAGE_TAG"
           fi
 
           echo "VALUES=${VALUES}" >> $GITHUB_ENV
