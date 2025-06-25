@@ -44,7 +44,7 @@ riverNode:
 
 appRegistryService:
   image:
-    tag: "cefe5af"
+    tag: "048fe9c"
   resources:
     requests:
       cpu: 0.5
