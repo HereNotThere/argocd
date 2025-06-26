@@ -33,6 +33,10 @@ on:
         description: "subgraph.image.tag"
         type: string
         required: false
+      xchainMonitorImageTag:
+        description: "xchainMonitor.image.tag"
+        type: string
+        required: false
 
   repository_dispatch:
     types: [update-infra]
@@ -77,7 +81,7 @@ jobs:
             APP_REGISTRY_SERVICE_IMAGE_TAG="${{ github.event.inputs.appRegistryServiceImageTag }}"
             RPC_GATEWAY_IMAGE_TAG="${{ github.event.inputs.rpcGatewayImageTag }}"
             SUBGRAPH_IMAGE_TAG="${{ github.event.inputs.subgraphImageTag }}"
-
+            XCHAIN_MONITOR_IMAGE_TAG="${{ github.event.inputs.xchainMonitorImageTag }}"
           elif [[ "${{ github.event_name }}" == "repository_dispatch" ]]; then
             echo "Repository dispatch event detected"
             ENV="${{ github.event.client_payload.environment }}"
@@ -86,6 +90,7 @@ jobs:
             APP_REGISTRY_SERVICE_IMAGE_TAG="${{ github.event.client_payload.appRegistryServiceImageTag }}"
             RPC_GATEWAY_IMAGE_TAG="${{ github.event.client_payload.rpcGatewayImageTag }}"
             SUBGRAPH_IMAGE_TAG="${{ github.event.client_payload.subgraphImageTag }}"
+            XCHAIN_MONITOR_IMAGE_TAG="${{ github.event.client_payload.xchainMonitorImageTag }}"
           else
             echo "Unknown event type: ${{ github.event_name }}, exiting"
             exit 1
@@ -122,6 +127,11 @@ jobs:
           # if the subgraph tag is set
           if [[ -n "$SUBGRAPH_IMAGE_TAG" ]]; then
             VALUES="$VALUES subgraph.image.tag=$SUBGRAPH_IMAGE_TAG"
+          fi
+
+          # if the xchain monitor tag is set
+          if [[ -n "$XCHAIN_MONITOR_IMAGE_TAG" ]]; then
+            VALUES="$VALUES xchainMonitor.image.tag=$XCHAIN_MONITOR_IMAGE_TAG"
           fi
 
           echo "VALUES=${VALUES}" >> $GITHUB_ENV
