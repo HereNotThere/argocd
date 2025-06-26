@@ -41,7 +41,7 @@ riverNode:
 
 subgraph:
   image:
-    tag: "redelegate-event-subgraph"
+    tag: "f7713d2"
   ponderStartBlock: "9378183"
   ponderLogLevel: "debug"
   nodeEnv: "development"
