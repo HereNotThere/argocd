@@ -16,7 +16,7 @@ chains:
 
 notificationService:
   image:
-    tag: "79e7866"
+    tag: "aba7c85"
   apnsTownsAppIdentifier: com.towns.internal
   resources:
     requests:
