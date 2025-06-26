@@ -41,7 +41,7 @@ riverNode:
 
 subgraph:
   image:
-    tag: "net-269-withdraw-deposit-subgraph"
+    tag: "f667aab"
   ponderStartBlock: "9378183"
   ponderLogLevel: "debug"
   nodeEnv: "development"
