@@ -81,7 +81,7 @@ rpcGateway:
 
 xchainMonitor:
   image:
-    tag: "latest"
+    tag: "f7713d2"
   resources:
     limits:
       cpu: 1
