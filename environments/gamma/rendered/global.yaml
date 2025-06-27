@@ -14,6 +14,7 @@ global:
     base:
       chainId: "84532"
       contractAddresses:
+        appRegistry: "0xec3081A4b07678C12Fc6B56f69F894EE9e732c42"
         baseRegistry: "0x08cC41b782F27d62995056a4EF2fCBAe0d3c266F"
         spaceArchitect: "0x968696BC59431Ef085441641f550C8e2Eaca8BEd"
     river:
