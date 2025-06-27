@@ -71,10 +71,6 @@ spec:
               value: {{ required "riverRegistry contract address required" $.Values.global.chains.river.contractAddresses.riverRegistry }}
             - name: ENTITLEMENT_CONTRACT__ADDRESS
               value: {{ required "baseRegistry contract address required" $.Values.global.chains.base.contractAddresses.baseRegistry }}
-            {{- with .Values.global.chains.base.contractAddresses.appRegistry }}
-            - name: APPREGISTRYCONTRACT__ADDRESS
-              value: {{ . }}
-            {{- end }}
             - name: DATABASE__USER
               value: {{ .dbUser }}
             - name: DATABASE__PORT
