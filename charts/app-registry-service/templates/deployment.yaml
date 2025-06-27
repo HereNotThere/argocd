@@ -113,7 +113,6 @@ spec:
               value: {{ required "riverRegistry contract address required" $.Values.global.chains.river.contractAddresses.riverRegistry }}
             - name: ENTITLEMENT_CONTRACT__ADDRESS
               value: {{ required "baseRegistry contract address required" $.Values.global.chains.base.contractAddresses.baseRegistry }}
-
             - name: LOG__FORMAT
               value: json
             - name: LOG__LEVEL
