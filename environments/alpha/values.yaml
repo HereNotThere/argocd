@@ -29,7 +29,7 @@ notificationService:
 
 riverNode:
   image:
-    tag: "f667aab"
+    tag: "29556a9"
   useRpcGateway: true
   riverRegistryPageSize: 1500
   numStreamNodes: 10
