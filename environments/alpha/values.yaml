@@ -130,7 +130,7 @@ appOfApps:
     disable: false
   - name: xchain-monitor
     namespace: default
-    disable: false
+    disable: true
   - name: metrics-aggregator
     namespace: default
     disable: false
