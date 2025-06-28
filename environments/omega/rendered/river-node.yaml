@@ -81,7 +81,7 @@ nodes:
     nodeUrl: https://archive3.nodes.omega.towns.com
     migrationStatus: done
     image:
-      tag: "589d4f8"
+      tag: "bb91fbb"
 
 race: false
 

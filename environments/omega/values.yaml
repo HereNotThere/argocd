@@ -34,9 +34,6 @@ riverNode:
   useRpcGateway: true
   numStreamNodes: 3
   numArchiveNodes: 3
-  imageTagOverride:
-    archive:
-      3: "589d4f8"
 
   apmEnabled: true
   resources:
