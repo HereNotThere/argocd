@@ -62,7 +62,7 @@ appOfApps:
         - ../../environments/gamma/rendered/main-alb.yaml
 
     - name: xchain-monitor
-      disable: false
+      disable: true
       namespace: default
       valueFiles:
         - ./values.yaml
