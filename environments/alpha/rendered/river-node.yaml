@@ -145,4 +145,4 @@ resources:
 
 riverRegistryPageSize: 1500
 
-mutualTLS: True
+mutualTLS: False

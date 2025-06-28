@@ -32,6 +32,7 @@ riverNode:
     tag: "f7713d2"
   numStreamNodes: 10
   numArchiveNodes: 0
+  mutualTLS: true
 
 subgraph:
   image:

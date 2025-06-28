@@ -31,7 +31,7 @@ riverNode:
     tag: "f667aab"
   useRpcGateway: true
   riverRegistryPageSize: 1500
-  mutualTLS: true
+  mutualTLS: false
   numStreamNodes: 10
   numArchiveNodes: 0
   race: true
