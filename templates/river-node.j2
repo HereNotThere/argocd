@@ -55,3 +55,5 @@ resources:
 }) | to_yaml | indent(2, True) }}
 
 riverRegistryPageSize: {{ riverNode.riverRegistryPageSize | default(5000) }}
+
+mutualTLS: {{ riverNode.mutualTLS | default(false) }}
