@@ -144,3 +144,5 @@ resources:
     memory: 1Gi
 
 riverRegistryPageSize: 1500
+
+mutualTLS: False

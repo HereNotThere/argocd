@@ -11,3 +11,8 @@ spec:
   dnsNames:
     - "*.test-nodes.{{ .Values.global.environmentName }}.towns.com"
     - "*.nodes.{{ .Values.global.environmentName }}.towns.com"
+  {{- if (default false .Values.mutualTLS) }}
+  usages:
+    - server auth
+    - client auth
+  {{- end }}
