@@ -158,9 +158,9 @@ spec:
             - name: NOTIFICATIONS__AUTHENTICATION__SESSIONTOKEN__KEY__ALGORITHM
               value: HS256
             - name: NOTIFICATIONS__APN__TEAMID
-              value: KG4HQQ5Y2X
+              value: 783K224KC6
             - name: NOTIFICATIONS__APN__KEYID
-              value: M4QUBD2Q36
+              value: 7M8V6D2DVR
             - name: NOTIFICATIONS__APN__APPBUNDLEID
               value: {{ required "apnsTownsAppIdentifier is required" .Values.apnsTownsAppIdentifier | quote }}
             - name: NOTIFICATIONS__WEBPUSH__VAPID__SUBJECT

@@ -31,12 +31,12 @@ notificationSendit:
     tag: "d41ae92"
   resources:
     limits:
-      cpu: 6.0
-      memory: 180Gi
+      cpu: 2.0
+      memory: 25Gi
     requests:
-      cpu: 1.5
-      memory: 80Gi
-  apnsTownsAppIdentifier: com.towns.ios.sendit
+      cpu: 0.5
+      memory: 10Gi
+  apnsTownsAppIdentifier: earth.sendit.app
 
 riverNode:
   image:

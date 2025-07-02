@@ -102,7 +102,7 @@ App Registry Service domain name
 Notification Sendit domain name
 */}}
 {{- define "notification-sendit.domainName" -}}
-{{- printf "notifications-sendit.towns.com" }}
+{{- printf "notification-sendit-%s.towns.com" .Values.global.environmentName }}
 {{- end }}
 
 {{/*

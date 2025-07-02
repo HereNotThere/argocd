@@ -116,3 +116,11 @@ appOfApps:
         - ./values.yaml
         - ../../environments/delta/rendered/global.yaml
         - ../../environments/delta/rendered/app-registry-service.yaml
+
+    - name: notification-sendit
+      disable: true
+      namespace: default
+      valueFiles:
+        - ./values.yaml
+        - ../../environments/delta/rendered/global.yaml
+        - ../../environments/delta/rendered/notification-sendit.yaml
