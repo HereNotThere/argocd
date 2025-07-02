@@ -42,7 +42,7 @@ riverNode:
 
 subgraph:
   image:
-    tag: "f7713d2"
+    tag: "d76a5ea"
   ponderStartBlock: "9378183"
   ponderLogLevel: "debug"
   nodeEnv: "development"
