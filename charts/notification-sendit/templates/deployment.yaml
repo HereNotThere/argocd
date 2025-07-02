@@ -1,0 +1,179 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "notification-sendit.fullname" . }}
+  labels:
+    {{- include "notification-sendit.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate #Tell k8s to recreate the pod when the deployment is updated
+  selector:
+    matchLabels:
+      {{- include "notification-sendit.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        ad.datadoghq.com/notification-sendit.logs: '[{"service": "notification-sendit"}]' 
+        ad.datadoghq.com/notification-sendit.checks: |
+         {
+            "openmetrics": {
+              "instances": [
+                {
+                  "prometheus_url": "http://%%host%%:80/metrics",
+                  "namespace": "notification-sendit",
+                  "metrics": ["*"]
+                }
+              ]
+            }
+         }
+      labels:
+        {{- include "notification-sendit.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      serviceAccountName: main-service-account
+      containers:
+        - name: notification-sendit
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /status?blockchain=0
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /status?blockchain=0
+              port: http
+              initialDelaySeconds: 60
+              timeoutSeconds: 5
+              failureThreshold: 5
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: REGISTRYCONTRACT__ADDRESS
+              value: {{ required "riverRegistry contract address required" .Values.global.chains.river.contractAddresses.riverRegistry }}
+            - name: RIVERCHAIN__CHAINID
+              value: {{ $.Values.global.chains.river.chainId | quote }}
+            - name: PORT
+              value: {{ required "service port required" .Values.service.port | quote }}
+            - name: LOG__FORMAT
+              value: json
+            - name: LOG__LEVEL
+              value: info
+            - name: LOG__NOCOLOR
+              value: "true"
+            - name: RUN_MODE
+              value: notifications
+            - name: DEBUGENDPOINTS__PPROF
+              value: "true"
+            - name: PERFORMANCETRACKING__PROFILINGENABLED
+              value: "true"
+            # - name: DD_TAGS 
+            #   value: "{{- include "notification-sendit.ddTags" . }}"
+            - name: DD_AGENT_HOST
+              value: "datadog.datadog.svc.cluster.local"
+            - name: DD_PROFILING_ENABLED
+              value: "false"
+            - name: DISABLEHTTPS
+              value: "true"
+            # - name: RIVER_PERFORMANCETRACKING_TRACINGENABLED
+            #   value: "true"
+            # - name: RIVER_PERFORMANCETRACKING_OTLPENABLEGRPC
+            #   value: "true"
+            # - name: RIVER_PERFORMANCETRACKING_OTLPINSECURE
+            #   value: "true"
+            # - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            #   value: "http://datadog.datadog:4317"
+
+            - name: DATABASE__PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: notification-sendit-secrets
+                  key: target_db_app_password
+
+            - name: DATABASE__HOST
+              valueFrom:
+                secretKeyRef:
+                  name: notification-sendit-secrets
+                  key: target_db_host
+
+            - name: DATABASE__PORT
+              value: "5432"
+
+            - name: DATABASE__USER
+              valueFrom:
+                secretKeyRef:
+                  name: notification-sendit-secrets
+                  key: target_db_app_user
+
+            - name: DATABASE__DATABASE
+              value: river
+
+            - name: DATABASE__EXTRA
+              value: "?sslmode=disable&pool_max_conns=1000"
+
+            - name: RIVERCHAIN__NETWORKURL
+              valueFrom:
+                secretKeyRef:
+                  name: notification-sendit-secrets
+                  key: river-rpc-url
+            - name: NOTIFICATIONS__AUTHENTICATION__SESSIONTOKEN__KEY__KEY
+              valueFrom:
+                secretKeyRef:
+                  name: notification-sendit-secrets
+                  key: session_token_key
+            - name: NOTIFICATIONS__APN__AUTHKEY
+              valueFrom:
+                secretKeyRef:
+                  name: notification-sendit-secrets
+                  key: apns_auth_key
+            - name: NOTIFICATIONS__WEBPUSH__VAPID__PUBLICKEY
+              valueFrom:
+                secretKeyRef:
+                  name: notification-sendit-secrets
+                  key: webpush_vapid_public_key
+            - name: NOTIFICATIONS__WEBPUSH__VAPID__PRIVATEKEY
+              valueFrom:
+                secretKeyRef:
+                  name: notification-sendit-secrets
+                  key: webpush_vapid_private_key
+            - name: NOTIFICATIONS__SUBSCRIPTIONEXPIRATIONDURATION
+              value: 2160h
+            - name: NOTIFICATIONS__AUTHENTICATION__SESSIONTOKEN__KEY__LIFETIME
+              value: 15m
+            - name: NOTIFICATIONS__AUTHENTICATION__SESSIONTOKEN__KEY__ALGORITHM
+              value: HS256
+            - name: NOTIFICATIONS__APN__TEAMID
+              value: KG4HQQ5Y2X
+            - name: NOTIFICATIONS__APN__KEYID
+              value: M4QUBD2Q36
+            - name: NOTIFICATIONS__APN__APPBUNDLEID
+              value: {{ required "apnsTownsAppIdentifier is required" .Values.apnsTownsAppIdentifier | quote }}
+            - name: NOTIFICATIONS__WEBPUSH__VAPID__SUBJECT
+              value: "support@towns.com"
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
