@@ -16,6 +16,7 @@ spec:
     - {{ include "subgraph.domainName" . }}
     - {{ include "rpc-gateway.domainName" . }}
     - {{ include "app-registry-service.domainName" . }}
+    - {{ include "notification-sendit.domainName" . }}
 
 ---
 
@@ -37,6 +38,7 @@ spec:
         - {{ include "subgraph.domainName" . }}
         - {{ include "rpc-gateway.domainName" . }}
         - {{ include "app-registry-service.domainName" . }}
+        - {{ include "notification-sendit.domainName" . }}
       secretName: main-alb-tls
   rules:
     {{- if not .Values.notificationService.disable }}
@@ -96,6 +98,18 @@ spec:
                 name: rpc-gateway
                 port:
                   number: 8080
+    {{- end }}
+    {{- if not .Values.notificationSendit.disable }}
+    - host: {{ include "notification-sendit.domainName" . }}
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: notification-sendit
+                port:
+                  number: 80
     {{- end }}
 
 ---

@@ -14,7 +14,7 @@ spec:
   template:
     metadata:
       annotations:
-        ad.datadoghq.com/notification-sendit.logs: '[{"service": "notification-sendit"}]' 
+        ad.datadoghq.com/notification-sendit.logs: '[{"service": "notification-sendit"}]'
         ad.datadoghq.com/notification-sendit.checks: |
          {
             "openmetrics": {
@@ -82,7 +82,7 @@ spec:
               value: "true"
             - name: PERFORMANCETRACKING__PROFILINGENABLED
               value: "true"
-            # - name: DD_TAGS 
+            # - name: DD_TAGS
             #   value: "{{- include "notification-sendit.ddTags" . }}"
             - name: DD_AGENT_HOST
               value: "datadog.datadog.svc.cluster.local"
