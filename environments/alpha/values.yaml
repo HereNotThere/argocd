@@ -29,7 +29,7 @@ notificationService:
 
 riverNode:
   image:
-    tag: "0d72faa"
+    tag: "136eaa4"
   useRpcGateway: true
   riverRegistryPageSize: 1500
   mutualTLS: false
