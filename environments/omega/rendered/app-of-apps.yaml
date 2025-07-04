@@ -116,3 +116,11 @@ appOfApps:
         - ./values.yaml
         - ../../environments/omega/rendered/global.yaml
         - ../../environments/omega/rendered/app-registry-service.yaml
+
+    - name: notification-sendit
+      disable: false
+      namespace: default
+      valueFiles:
+        - ./values.yaml
+        - ../../environments/omega/rendered/global.yaml
+        - ../../environments/omega/rendered/notification-sendit.yaml

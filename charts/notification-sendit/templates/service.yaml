@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "notification-sendit.fullname" . }}
+  labels:
+    {{- include "notification-sendit.labels" . | nindent 4 }}
+  annotations:
+    cloud.google.com/backend-config: '{"default": "{{ include "notification-sendit.fullname" . }}" }'
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "notification-sendit.selectorLabels" . | nindent 4 }}

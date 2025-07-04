@@ -13,3 +13,6 @@ subgraph:
 
 appRegistryService:
   disable: false
+
+notificationSendit:
+  disable: true
