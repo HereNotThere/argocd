@@ -83,7 +83,7 @@ rpcGateway:
 
 xchainMonitor:
   image:
-    tag: "0d72faa"
+    tag: "6b17d78"
   resources:
     limits:
       cpu: 1
