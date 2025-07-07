@@ -29,7 +29,7 @@ notificationService:
 
 riverNode:
   image:
-    tag: "cb1ccb8"
+    tag: "e647691"
   numStreamNodes: 10
   numArchiveNodes: 0
   mutualTLS: true
