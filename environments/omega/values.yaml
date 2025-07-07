@@ -28,7 +28,7 @@ notificationService:
 
 riverNode:
   image:
-    tag: "bb91fbb"
+    tag: "149a390"
     pullPolicy: Always
   riverRegistryPageSize: 3000
   useRpcGateway: true
