@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "notification-sendit.fullname" . }}:{{ .Values.service.port }}']
+      args: ['http://{{ include "notification-sendit.fullname" . }}:{{ .Values.service.port }}/status']
   restartPolicy: Never
