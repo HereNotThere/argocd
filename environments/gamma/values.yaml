@@ -77,7 +77,7 @@ argocd:
 
 xchainMonitor:
   image:
-    tag: "cb1ccb8"
+    tag: "e647691"
   resources:
     limits:
       cpu: 1
