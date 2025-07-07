@@ -20,8 +20,13 @@ TEMPLATE_NAMES = (
   'xchain-monitor',
   'river-node',
   'rpc-gateway',
-  'subgraph',
-  'notification-sendit'
+  TEMPLATE_NAMES = tuple(dict.fromkeys([
+      'global', 'app-of-apps', 'argocd', 'cert-manager', 'datadog',
+      'external-secrets', 'external-dns', 'main-alb',
+      'notification-service', 'notification-sendit',
+      'app-registry-service', 'metrics-aggregator',
+      'river-node', 'rpc-gateway', 'subgraph', 'xchain-monitor',
+  ]))
 )
 
 GENERATED_FILE_WARNING_MESSAGE = """############### WARNING ####################
