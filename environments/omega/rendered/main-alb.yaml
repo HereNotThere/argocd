@@ -12,7 +12,7 @@ rpcGateway:
   disable: false
 
 appRegistryService:
-  disable: false
+  disable: true
 
 notificationSendit:
   disable: false

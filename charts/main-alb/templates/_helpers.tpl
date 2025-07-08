@@ -109,6 +109,23 @@ Notification Sendit domain name
 All host names to attach to the ALB. A comma separated list of all the host names that should be attached to the ALB.
 */}}
 {{- define "main-alb.hosts" -}}
-{{ include "argocd.domainName" . }},{{ include "notification-service.domainName" . }},{{ include "subgraph.domainName" . }},{{ include "rpc-gateway.domainName" . }},{{ include "app-registry-service.domainName" . }},{{ include "notification-sendit.domainName" . }}
+{{- $hosts := list -}}
+{{- $hosts = append $hosts (include "argocd.domainName" .) -}}
+{{- if not .Values.notificationService.disable -}}
+{{- $hosts = append $hosts (include "notification-service.domainName" .) -}}
+{{- end -}}
+{{- if not .Values.subgraph.disable -}}
+{{- $hosts = append $hosts (include "subgraph.domainName" .) -}}
+{{- end -}}
+{{- if not .Values.rpcGateway.disable -}}
+{{- $hosts = append $hosts (include "rpc-gateway.domainName" .) -}}
+{{- end -}}
+{{- if not .Values.appRegistryService.disable -}}
+{{- $hosts = append $hosts (include "app-registry-service.domainName" .) -}}
+{{- end -}}
+{{- if not .Values.notificationSendit.disable -}}
+{{- $hosts = append $hosts (include "notification-sendit.domainName" .) -}}
+{{- end -}}
+{{- join "," $hosts -}}
 {{- end }}
 

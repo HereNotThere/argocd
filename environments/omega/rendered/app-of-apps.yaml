@@ -110,7 +110,7 @@ appOfApps:
         - ../../environments/omega/rendered/rpc-gateway.yaml
 
     - name: app-registry-service
-      disable: false
+      disable: true
       namespace: default
       valueFiles:
         - ./values.yaml
