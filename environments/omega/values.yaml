@@ -100,7 +100,7 @@ appRegistryService:
 
 xchainMonitor:
   image:
-    tag: "136eaa4"
+    tag: "149a390"
   resources:
     limits:
       cpu: 1
