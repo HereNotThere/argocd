@@ -11,12 +11,22 @@ spec:
     name: letsencrypt
     kind: ClusterIssuer
   dnsNames:
+    {{- if not .Values.notificationService.disable }}
     - {{ include "notification-service.domainName" . }}
+    {{- end }}
     - {{ include "argocd.domainName" . }}
+    {{- if not .Values.subgraph.disable }}
     - {{ include "subgraph.domainName" . }}
+    {{- end }}
+    {{- if not .Values.rpcGateway.disable }}
     - {{ include "rpc-gateway.domainName" . }}
+    {{- end }}
+    {{- if not .Values.appRegistryService.disable }}
     - {{ include "app-registry-service.domainName" . }}
+    {{- end }}
+    {{- if not .Values.notificationSendit.disable }}
     - {{ include "notification-sendit.domainName" . }}
+    {{- end }}
 
 ---
 
@@ -33,12 +43,22 @@ metadata:
 spec:
   tls:
     - hosts:
+        {{- if not .Values.notificationService.disable }}
         - {{ include "notification-service.domainName" . }}
+        {{- end }}
         - {{ include "argocd.domainName" . }}
+        {{- if not .Values.subgraph.disable }}
         - {{ include "subgraph.domainName" . }}
+        {{- end }}
+        {{- if not .Values.rpcGateway.disable }}
         - {{ include "rpc-gateway.domainName" . }}
+        {{- end }}
+        {{- if not .Values.appRegistryService.disable }}
         - {{ include "app-registry-service.domainName" . }}
+        {{- end }}
+        {{- if not .Values.notificationSendit.disable }}
         - {{ include "notification-sendit.domainName" . }}
+        {{- end }}
       secretName: main-alb-tls
   rules:
     {{- if not .Values.notificationService.disable }}

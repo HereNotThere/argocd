@@ -166,7 +166,7 @@ appOfApps:
     disable: false
   - name: app-registry-service
     namespace: default
-    disable: false
+    disable: true
   - name: notification-sendit
     namespace: default
     disable: false
