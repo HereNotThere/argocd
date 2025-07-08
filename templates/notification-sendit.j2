@@ -1,0 +1,5 @@
+apnsTownsAppIdentifier: {{ notificationSendit.apnsTownsAppIdentifier }}
+image:
+  tag: "{{ notificationSendit.image.tag }}"
+resources:
+  {{ notificationSendit.resources | to_yaml | indent(2) }}

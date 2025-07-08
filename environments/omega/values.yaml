@@ -26,6 +26,18 @@ notificationService:
       memory: 80Gi
   apnsTownsAppIdentifier: com.towns.ios # TODO: always change
 
+notificationSendit:
+  image:
+    tag: "d41ae92"
+  resources:
+    limits:
+      cpu: 2.0
+      memory: 25Gi
+    requests:
+      cpu: 0.5
+      memory: 10Gi
+  apnsTownsAppIdentifier: earth.sendit.app
+
 riverNode:
   image:
     tag: "149a390"
@@ -153,5 +165,8 @@ appOfApps:
     namespace: default
     disable: false
   - name: app-registry-service
+    namespace: default
+    disable: false
+  - name: notification-sendit
     namespace: default
     disable: false

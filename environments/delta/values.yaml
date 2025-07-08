@@ -27,6 +27,18 @@ notificationService:
   apnsTownsAppIdentifier: com.towns.ios.delta
   riverRegistryPageSize: 1500
 
+notificationSendit:
+  image:
+    tag: "0d72faa"
+  resources:
+    requests:
+      cpu: 500m
+      memory: 2Gi
+    limits:
+      cpu: 1
+      memory: 7.5Gi
+  apnsTownsAppIdentifier: com.towns.ios.sendit
+
 riverNode:
   image:
     tag: "149a390"
@@ -135,3 +147,6 @@ appOfApps:
   - name: app-registry-service
     namespace: default
     disable: false
+  - name: notification-sendit
+    namespace: default
+    disable: true

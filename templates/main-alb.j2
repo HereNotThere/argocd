@@ -15,4 +15,8 @@
   appRegistryService:
     disable: {{ app.disable | lower}}
 {% endif %}
+{% if app.name == "notification-sendit" %}
+  notificationSendit:
+    disable: {{ app.disable | lower}}
+{% endif %}
 {% endfor %}

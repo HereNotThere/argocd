@@ -116,3 +116,11 @@ appOfApps:
         - ./values.yaml
         - ../../environments/alpha/rendered/global.yaml
         - ../../environments/alpha/rendered/app-registry-service.yaml
+
+    - name: notification-sendit
+      disable: true
+      namespace: default
+      valueFiles:
+        - ./values.yaml
+        - ../../environments/alpha/rendered/global.yaml
+        - ../../environments/alpha/rendered/notification-sendit.yaml
