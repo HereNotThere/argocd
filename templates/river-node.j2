@@ -45,7 +45,10 @@ nodes:
 race: {{ riverNode.race | default('false') | lower }}
 
 logLevel: {{ riverNode.logLevel | default('info') | lower }}
-gotraceback: {{ riverNode.gotraceback | default('single') | lower }}
+
+{% if riverNode.gotraceback %}
+gotraceback: {{ riverNode.gotraceback }}
+{% endif %}
 
 resources: 
 {{ riverNode.resources | default({

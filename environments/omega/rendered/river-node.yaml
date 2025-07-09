@@ -87,6 +87,8 @@ race: false
 
 logLevel: info
 
+gotraceback: all
+
 resources:
   limits:
     cpu: 2
