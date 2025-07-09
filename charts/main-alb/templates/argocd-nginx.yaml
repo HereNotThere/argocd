@@ -13,11 +13,12 @@ data:
       limit_req_zone $binary_remote_addr zone=general:2m rate=10r/s;
       limit_req_zone $binary_remote_addr zone=webhook:2m rate=5r/s;
       limit_req_status 429;
+      limit_req_log_level warn;
 
       server {
         listen 80;
 
-        limit_req zone=general burst=30;
+        limit_req zone=general burst=30 nodelay;
 
         client_max_body_size 50M;
 
@@ -38,7 +39,7 @@ data:
 
         location /api/webhook/ {
           # Stricter rate limit for webhooks
-          limit_req zone=webhook burst=10;
+          limit_req zone=webhook burst=10 nodelay;
 
           # Smaller body size for webhook
           client_max_body_size 2m;
