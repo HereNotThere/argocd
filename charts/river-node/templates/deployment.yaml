@@ -168,6 +168,10 @@ spec:
               value: {{ required "riverRegistryPageSize is required" $.Values.riverRegistryPageSize | quote }}
             - name: RIVER_RIVERREGISTRY_PARALLELREADERS
               value: "10"
+            {{- if $.Values.gotraceback }}
+            - name: GOTRACEBACK
+              value: {{ $.Values.gotraceback | quote }}
+            {{- end }}
       volumes:
         - name: tls-secret
           secret:
