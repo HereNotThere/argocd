@@ -171,6 +171,8 @@ spec:
             {{- if $.Values.gotraceback }}
             - name: GOTRACEBACK
               value: {{ $.Values.gotraceback | quote }}
+            - name: TOWNS_GOTRACEBACK
+              value: {{ $.Values.gotraceback | quote }}
             {{- end }}
       volumes:
         - name: tls-secret
