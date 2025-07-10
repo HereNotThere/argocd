@@ -87,7 +87,7 @@ race: false
 
 logLevel: info
 
-gotraceback: all
+gotraceback: crash
 
 resources:
   limits:

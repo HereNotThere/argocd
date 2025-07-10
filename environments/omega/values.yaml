@@ -47,7 +47,7 @@ riverNode:
   numStreamNodes: 3
   numArchiveNodes: 3
 
-  gotraceback: "all"
+  gotraceback: "crash"
   apmEnabled: true
   resources:
     requests:
