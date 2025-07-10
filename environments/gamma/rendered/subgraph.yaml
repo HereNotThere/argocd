@@ -4,7 +4,7 @@
 
 nodeEnv: "development"
 
-ponderStartBlock: "9378183"
+ponderStartBlock: "7300000"
 ponderLogLevel: "debug"
 
 podAnnotations:
