@@ -25,6 +25,9 @@ nodes:
     migrationStatus: {{ riverNode.migrationStatus.stream[i] if riverNode.migrationStatus and riverNode.migrationStatus.stream and i in riverNode.migrationStatus.stream else 'done' }}
     image: 
       tag: "{{ riverNode.imageTagOverride.stream[i] if riverNode.imageTagOverride and riverNode.imageTagOverride.stream and i in riverNode.imageTagOverride.stream else riverNode.image.tag }}"
+    {%- if global.environmentName == "omega" and i == 2 %}
+    restartPolicy: Never
+    {%- endif %}
   {% endfor %}
   {% for i in range(1, riverNode.numArchiveNodes + 1) %}
   {% set host_name = "archive" ~ i ~ ".nodes." ~ global.environmentName ~ ".towns.com" %}
