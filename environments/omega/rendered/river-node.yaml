@@ -34,7 +34,6 @@ nodes:
     migrationStatus: done
     image:
       tag: "149a390"
-    restartPolicy: Never
 
   - nodeType: stream
     nodeNumber: 3
