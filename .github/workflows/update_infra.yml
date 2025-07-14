@@ -37,6 +37,10 @@ on:
         description: "xchainMonitor.image.tag"
         type: string
         required: false
+      notificationSenditImageTag:
+        description: "notificationSendit.image.tag"
+        type: string
+        required: false
 
   repository_dispatch:
     types: [update-infra]
@@ -82,6 +86,7 @@ jobs:
             RPC_GATEWAY_IMAGE_TAG="${{ github.event.inputs.rpcGatewayImageTag }}"
             SUBGRAPH_IMAGE_TAG="${{ github.event.inputs.subgraphImageTag }}"
             XCHAIN_MONITOR_IMAGE_TAG="${{ github.event.inputs.xchainMonitorImageTag }}"
+            NOTIFICATION_SENDIT_IMAGE_TAG="${{ github.event.inputs.notificationSenditImageTag }}"
           elif [[ "${{ github.event_name }}" == "repository_dispatch" ]]; then
             echo "Repository dispatch event detected"
             ENV="${{ github.event.client_payload.environment }}"
@@ -91,6 +96,7 @@ jobs:
             RPC_GATEWAY_IMAGE_TAG="${{ github.event.client_payload.rpcGatewayImageTag }}"
             SUBGRAPH_IMAGE_TAG="${{ github.event.client_payload.subgraphImageTag }}"
             XCHAIN_MONITOR_IMAGE_TAG="${{ github.event.client_payload.xchainMonitorImageTag }}"
+            NOTIFICATION_SENDIT_IMAGE_TAG="${{ github.event.client_payload.notificationSenditImageTag }}"
           else
             echo "Unknown event type: ${{ github.event_name }}, exiting"
             exit 1
@@ -132,6 +138,11 @@ jobs:
           # if the xchain monitor tag is set
           if [[ -n "$XCHAIN_MONITOR_IMAGE_TAG" ]]; then
             VALUES="$VALUES xchainMonitor.image.tag=$XCHAIN_MONITOR_IMAGE_TAG"
+          fi
+
+          # if the notification sendit tag is set
+          if [[ -n "$NOTIFICATION_SENDIT_IMAGE_TAG" ]]; then
+            VALUES="$VALUES notificationSendit.image.tag=$NOTIFICATION_SENDIT_IMAGE_TAG"
           fi
 
           echo "VALUES=${VALUES}" >> $GITHUB_ENV
