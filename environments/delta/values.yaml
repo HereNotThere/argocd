@@ -41,7 +41,7 @@ notificationSendit:
 
 riverNode:
   image:
-    tag: "a2d43eb"
+    tag: "d5285e1"
   numStreamNodes: 10
   numArchiveNodes: 0
   mutualTLS: true
