@@ -9,16 +9,20 @@ data:
       worker_connections 1024;
     }
     http {
+      {{- if .Values.argocdProxy.rateLimiting.enabled }}
       # Rate limits per IP
-      limit_req_zone $binary_remote_addr zone=general:2m rate=10r/s;
-      limit_req_zone $binary_remote_addr zone=webhook:2m rate=5r/s;
+      limit_req_zone $binary_remote_addr zone=general:2m rate={{ .Values.argocdProxy.rateLimiting.general.rate }};
+      limit_req_zone $binary_remote_addr zone=webhook:2m rate={{ .Values.argocdProxy.rateLimiting.webhook.rate }};
       limit_req_status 429;
       limit_req_log_level warn;
+      {{- end }}
 
       server {
         listen 80;
 
-        limit_req zone=general burst=30 nodelay;
+        {{- if .Values.argocdProxy.rateLimiting.enabled }}
+        limit_req zone=general burst={{ .Values.argocdProxy.rateLimiting.general.burst }} nodelay;
+        {{- end }}
 
         client_max_body_size 50M;
 
@@ -38,8 +42,10 @@ data:
         }
 
         location /api/webhook/ {
+          {{- if .Values.argocdProxy.rateLimiting.enabled }}
           # Stricter rate limit for webhooks
-          limit_req zone=webhook burst=10 nodelay;
+          limit_req zone=webhook burst={{ .Values.argocdProxy.rateLimiting.webhook.burst }} nodelay;
+          {{- end }}
 
           # Smaller body size for webhook
           client_max_body_size 2m;

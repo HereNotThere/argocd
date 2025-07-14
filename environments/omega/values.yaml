@@ -14,6 +14,10 @@ chains:
       spaceArchitect: "0x9978c826d93883701522d2CA645d5436e5654252"
       baseRegistry: "0x7c0422b31401C936172C897802CF0373B35B7698"
 
+argocdProxy:
+  rateLimiting:
+    enabled: false
+
 notificationService:
   image:
     tag: "a2d43eb"
