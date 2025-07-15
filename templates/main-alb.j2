@@ -20,5 +20,7 @@
     disable: {{ app.disable | lower}}
 {% endif %}
 {% endfor %}
+{% if argocdProxy is defined %}
   argocdProxy:
     {{ argocdProxy | to_yaml | indent(4) }}
+{% endif %}
