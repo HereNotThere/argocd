@@ -73,7 +73,7 @@ spec:
             - name: LOG__FORMAT
               value: json
             - name: LOG__LEVEL
-              value: info
+              value: {{ $.Values.logLevel | quote }}
             - name: LOG__NOCOLOR
               value: "true"
             - name: RUN_MODE
