@@ -3,3 +3,5 @@ image:
   tag: "{{ notificationSendit.image.tag }}"
 resources:
   {{ notificationSendit.resources | to_yaml | indent(2) }}
+
+logLevel: {{ notificationSendit.logLevel | default('info') | lower }}

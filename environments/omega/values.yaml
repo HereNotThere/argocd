@@ -37,6 +37,7 @@ notificationSendit:
       cpu: 0.5
       memory: 10Gi
   apnsTownsAppIdentifier: earth.sendit.app
+  logLevel: debug
 
 riverNode:
   image:
