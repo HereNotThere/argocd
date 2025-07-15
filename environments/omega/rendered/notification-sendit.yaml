@@ -13,4 +13,4 @@ resources:
     cpu: 0.5
     memory: 10Gi
 
-logLevel: debug
+logLevel: info
