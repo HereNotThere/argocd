@@ -1,7 +1,7 @@
 # ArgoCD proxy default rate limiting configuration
 argocdProxy:
   rateLimiting:
-    enabled: true
+    enabled: false
     general:
       rate: "10"
       burst: "30"
