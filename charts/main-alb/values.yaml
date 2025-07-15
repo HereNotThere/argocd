@@ -1,4 +1,4 @@
-# ArgoCD proxy defaultrate limiting configuration
+# ArgoCD proxy default rate limiting configuration
 argocdProxy:
   rateLimiting:
     enabled: true
