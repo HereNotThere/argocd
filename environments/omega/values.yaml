@@ -28,7 +28,7 @@ notificationService:
 
 notificationSendit:
   image:
-    tag: "sendit-syncfix-test"
+    tag: "sendit-debug-logs"
   resources:
     limits:
       cpu: 2.0
