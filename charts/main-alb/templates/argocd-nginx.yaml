@@ -9,8 +9,29 @@ data:
       worker_connections 1024;
     }
     http {
+      {{- if .Values.argocdProxy.rateLimiting.enabled }}
+      # Rate limits per IP
+      limit_req_zone $binary_remote_addr zone=general:2m rate={{ .Values.argocdProxy.rateLimiting.general.rate }}r/s;
+      limit_req_zone $binary_remote_addr zone=webhook:2m rate={{ .Values.argocdProxy.rateLimiting.webhook.rate }}r/s;
+      limit_req_status 429;
+      limit_req_log_level warn;
+      {{- end }}
+
       server {
         listen 80;
+
+        {{- if .Values.argocdProxy.rateLimiting.enabled }}
+        limit_req zone=general burst={{ .Values.argocdProxy.rateLimiting.general.burst | int }} nodelay;
+        {{- end }}
+
+        client_max_body_size 50M;
+
+        # Common proxy settings
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $host;
 
         location /swagger-ui/ {
           return 403;
@@ -20,12 +41,20 @@ data:
           return 403;
         }
 
+        location /api/webhook/ {
+          {{- if .Values.argocdProxy.rateLimiting.enabled }}
+          # Stricter rate limit for webhooks
+          limit_req zone=webhook burst={{ .Values.argocdProxy.rateLimiting.webhook.burst | int }} nodelay;
+          {{- end }}
+
+          # Smaller body size for webhook
+          client_max_body_size 2m;
+
+          proxy_pass http://argocd-server.argocd.svc.cluster.local:80;
+        }
+
         location / {
           proxy_pass http://argocd-server.argocd.svc.cluster.local:80;
-          proxy_set_header Host $host;
-          proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          proxy_set_header X-Forwarded-Proto $scheme;
         }
       }
     }

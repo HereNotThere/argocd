@@ -89,6 +89,10 @@ argocd:
   externalAccess:
     enabled: true
 
+argocdProxy:
+  rateLimiting:
+    enabled: true
+
 rpcGateway:
   image:
     tag: "latest"
