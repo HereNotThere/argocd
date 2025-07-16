@@ -9,7 +9,18 @@ data:
       worker_connections 1024;
     }
     http {
-      {{- if .Values.argocdProxy.rateLimiting.enabled }}
+      {{- if .Values.argocdProxy.trustedProxies.enabled }}
+      # Configure nginx to get real client IP from X-Forwarded-For header
+      {{- range .Values.argocdProxy.trustedProxies.cidrBlocks }}
+      set_real_ip_from {{ . }};
+      {{- end }}
+
+      # Use the X-Forwarded-For header to get the real client IP, and not Load Balancer IP
+      real_ip_header X-Forwarded-For;
+      real_ip_recursive on;
+      {{- end }}
+
+      {{ if .Values.argocdProxy.rateLimiting.enabled }}
       # Rate limits per IP
       limit_req_zone $binary_remote_addr zone=general:2m rate={{ .Values.argocdProxy.rateLimiting.general.rate }}r/s;
       limit_req_zone $binary_remote_addr zone=webhook:2m rate={{ .Values.argocdProxy.rateLimiting.webhook.rate }}r/s;

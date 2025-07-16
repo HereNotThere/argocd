@@ -90,6 +90,8 @@ argocd:
     enabled: true
 
 argocdProxy:
+  trustedProxies:
+    enabled: true
   rateLimiting:
     enabled: true
 

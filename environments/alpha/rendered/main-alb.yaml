@@ -20,3 +20,5 @@ notificationSendit:
 argocdProxy:
   rateLimiting:
     enabled: true
+  trustedProxies:
+    enabled: true
