@@ -41,7 +41,7 @@ notificationSendit:
 
 riverNode:
   image:
-    tag: "0fe6bdd"
+    tag: "abb9260"
   numStreamNodes: 11
   numArchiveNodes: 0
   riverRegistryPageSize: 1500
