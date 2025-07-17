@@ -16,7 +16,7 @@ chains:
 
 notificationService:
   image:
-    tag: "abb9260"
+    tag: "3ad2550"
   resources:
     requests:
       cpu: 1
