@@ -16,3 +16,9 @@ appRegistryService:
 
 notificationSendit:
   disable: false
+
+argocdProxy:
+  rateLimiting:
+    enabled: true
+  trustedProxies:
+    enabled: true
