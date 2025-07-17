@@ -11,8 +11,8 @@ argocdProxy:
   rateLimiting:
     enabled: false
     general:
-      rate: "10"
-      burst: "30"
+      rate: "50"
+      burst: "150"
     webhook:
-      rate: "5"
-      burst: "10"
+      rate: "10"
+      burst: "20"
