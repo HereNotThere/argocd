@@ -101,7 +101,7 @@ rpcGateway:
 
 xchainMonitor:
   image:
-    tag: "a2d43eb"
+    tag: "abb9260"
   resources:
     limits:
       cpu: 1
