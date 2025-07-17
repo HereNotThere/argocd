@@ -78,6 +78,12 @@ argocd:
   externalAccess:
     enabled: true
 
+argocdProxy:
+  trustedProxies:
+    enabled: true
+  rateLimiting:
+    enabled: true
+
 xchainMonitor:
   image:
     tag: "latest"
