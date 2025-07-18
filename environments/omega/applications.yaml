@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/HereNotThere/argocd
+    repoURL: git@github.com:HereNotThere/argocd.git
     targetRevision: main
     path: charts/app-of-apps
     helm:
