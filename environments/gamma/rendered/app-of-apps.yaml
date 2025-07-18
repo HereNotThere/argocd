@@ -7,7 +7,7 @@ appOfApps:
     spec:
       project: default
       source:
-        repoURL: https://github.com/HereNotThere/argocd
+        repoURL: git@github.com:HereNotThere/argocd.git
         targetRevision: main
 
   applications:
