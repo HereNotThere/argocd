@@ -41,7 +41,7 @@ notificationSendit:
 
 riverNode:
   image:
-    tag: "0fe6bdd"
+    tag: "c05d051"
     pullPolicy: Always
   riverRegistryPageSize: 3000
   useRpcGateway: true
