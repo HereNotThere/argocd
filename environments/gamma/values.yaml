@@ -41,7 +41,7 @@ notificationSendit:
 
 riverNode:
   image:
-    tag: "c05d051"
+    tag: "0758fbf"
   numStreamNodes: 11
   numArchiveNodes: 0
   riverRegistryPageSize: 1500
