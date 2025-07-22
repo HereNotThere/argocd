@@ -3,7 +3,7 @@
 # Instead, edit the corresponding template file in the templates directory and run the environment.py script.
 
 image:
-  tag: "0eaa255"
+  tag: "491c80d"
 resources:
   limits:
     cpu: 1
