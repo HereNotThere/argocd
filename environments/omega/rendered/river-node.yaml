@@ -91,11 +91,11 @@ gotraceback: crash
 
 resources:
   limits:
-    cpu: 2
-    memory: 20Gi
+    cpu: 6
+    memory: 32Gi
   requests:
-    cpu: 0.5
-    memory: 15Gi
+    cpu: 1
+    memory: 12Gi
 
 riverRegistryPageSize: 3000
 

@@ -52,11 +52,11 @@ riverNode:
   apmEnabled: true
   resources:
     requests:
-      cpu: 0.5
-      memory: 15Gi
+      cpu: 1
+      memory: 12Gi
     limits:
-      cpu: 2
-      memory: 20Gi
+      cpu: 6
+      memory: 32Gi
 
 subgraph:
   image:
