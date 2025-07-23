@@ -108,7 +108,7 @@ argocdProxy:
 
 xchainMonitor:
   image:
-    tag: "3ad2550"
+    tag: "ee42a0d"
   resources:
     limits:
       cpu: 1
