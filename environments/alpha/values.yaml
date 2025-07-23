@@ -41,7 +41,7 @@ notificationSendit:
 
 riverNode:
   image:
-    tag: "0758fbf"
+    tag: "ee42a0d"
   useRpcGateway: true
   riverRegistryPageSize: 1500
   mutualTLS: false
