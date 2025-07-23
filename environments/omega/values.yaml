@@ -28,7 +28,7 @@ notificationService:
 
 notificationSendit:
   image:
-    tag: "sendit-debug-logs"
+    tag: "ee42a0d"
   resources:
     limits:
       cpu: 2.0
