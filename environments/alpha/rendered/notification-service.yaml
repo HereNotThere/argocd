@@ -14,3 +14,6 @@ resources:
     memory: 7.5Gi
 
 logLevel: info
+
+notifications:
+  ColdStreamsEnabled: true

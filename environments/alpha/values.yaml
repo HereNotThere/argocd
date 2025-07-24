@@ -26,6 +26,7 @@ notificationService:
       cpu: 1000m
       memory: 7.5Gi
   apnsTownsAppIdentifier: com.towns.ios.alpha
+  ColdStreamsEnabled: true
 
 notificationSendit:
   image:
