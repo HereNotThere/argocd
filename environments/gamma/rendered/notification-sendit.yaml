@@ -4,7 +4,7 @@
 
 apnsTownsAppIdentifier: com.towns.ios.sendit
 image:
-  tag: "0d72faa"
+  tag: "a0cb8bf"
 resources:
   limits:
     cpu: 1

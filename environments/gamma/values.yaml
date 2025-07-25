@@ -17,7 +17,7 @@ chains:
 
 notificationService:
   image:
-    tag: "0b84600"
+    tag: "a0cb8bf"
   apnsTownsAppIdentifier: com.towns.internal
   resources:
     requests:
@@ -30,7 +30,7 @@ notificationService:
 
 notificationSendit:
   image:
-    tag: "0d72faa"
+    tag: "a0cb8bf"
   resources:
     requests:
       cpu: 0.5
