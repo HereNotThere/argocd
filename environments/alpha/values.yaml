@@ -102,7 +102,7 @@ rpcGateway:
 
 xchainMonitor:
   image:
-    tag: "ee42a0d"
+    tag: "391b785"
   resources:
     limits:
       cpu: 1
