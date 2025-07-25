@@ -39,6 +39,7 @@ notificationSendit:
       cpu: 1000m
       memory: 7.5Gi
   apnsTownsAppIdentifier: com.towns.ios.sendit
+  ColdStreamsEnabled: true
 
 riverNode:
   image:

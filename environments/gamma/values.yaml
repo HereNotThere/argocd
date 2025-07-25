@@ -26,6 +26,7 @@ notificationService:
     limits:
       cpu: 1
       memory: 7Gi
+  ColdStreamsEnabled: true
 
 notificationSendit:
   image:
@@ -38,6 +39,7 @@ notificationSendit:
       cpu: 1
       memory: 7Gi
   apnsTownsAppIdentifier: com.towns.ios.sendit
+  ColdStreamsEnabled: true
 
 riverNode:
   image:
