@@ -25,6 +25,7 @@ notificationService:
       cpu: 1
       memory: 7.5Gi
   apnsTownsAppIdentifier: com.towns.ios.delta
+  ColdStreamsEnabled: true
   riverRegistryPageSize: 1500
 
 notificationSendit:
@@ -38,6 +39,7 @@ notificationSendit:
       cpu: 1
       memory: 7.5Gi
   apnsTownsAppIdentifier: com.towns.ios.sendit
+  ColdStreamsEnabled: true
 
 riverNode:
   image:

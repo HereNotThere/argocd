@@ -5,3 +5,6 @@ resources:
   {{ notificationSendit.resources | to_yaml | indent(2) }}
 
 logLevel: {{ notificationSendit.logLevel | default('info') | lower }}
+
+notifications:
+    ColdStreamsEnabled: {{ notificationSendit.ColdStreamsEnabled | default('false') | lower }}
