@@ -4,7 +4,7 @@
 
 apnsTownsAppIdentifier: earth.sendit.app
 image:
-  tag: "ee42a0d"
+  tag: "a0cb8bf"
 resources:
   limits:
     cpu: 2.0
