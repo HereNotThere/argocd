@@ -165,6 +165,8 @@ spec:
               value: {{ required "apnsTownsAppIdentifier is required" .Values.apnsTownsAppIdentifier | quote }}
             - name: NOTIFICATIONS__WEBPUSH__VAPID__SUBJECT
               value: "support@towns.com"
+            - name: NOTIFICATIONS__COLDSTREAMSENABLED
+              value: {{ $.Values.notifications.ColdStreamsEnabled | default "false" | quote }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
