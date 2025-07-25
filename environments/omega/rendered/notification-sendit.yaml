@@ -16,4 +16,4 @@ resources:
 logLevel: info
 
 notifications:
-  ColdStreamsEnabled: true
+  ColdStreamsEnabled: false

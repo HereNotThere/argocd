@@ -25,7 +25,7 @@ notificationService:
       cpu: 1.5
       memory: 80Gi
   apnsTownsAppIdentifier: com.towns.ios # TODO: always change
-  ColdStreamsEnabled: true
+  ColdStreamsEnabled: false
 
 notificationSendit:
   image:
@@ -38,7 +38,7 @@ notificationSendit:
       cpu: 0.5
       memory: 10Gi
   apnsTownsAppIdentifier: earth.sendit.app
-  ColdStreamsEnabled: true
+  ColdStreamsEnabled: false
   logLevel: info
 
 riverNode:
