@@ -16,7 +16,7 @@ chains:
 
 notificationService:
   image:
-    tag: "0758fbf"
+    tag: "a0cb8bf"
   resources:
     limits:
       cpu: 6.0
@@ -25,10 +25,11 @@ notificationService:
       cpu: 1.5
       memory: 80Gi
   apnsTownsAppIdentifier: com.towns.ios # TODO: always change
+  ColdStreamsEnabled: true
 
 notificationSendit:
   image:
-    tag: "ee42a0d"
+    tag: "a0cb8bf"
   resources:
     limits:
       cpu: 2.0
@@ -37,6 +38,7 @@ notificationSendit:
       cpu: 0.5
       memory: 10Gi
   apnsTownsAppIdentifier: earth.sendit.app
+  ColdStreamsEnabled: true
   logLevel: info
 
 riverNode:
