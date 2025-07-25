@@ -48,7 +48,7 @@ riverNode:
   riverRegistryPageSize: 3000
   useRpcGateway: true
   numStreamNodes: 3
-  numArchiveNodes: 3
+  numArchiveNodes: 1
 
   gotraceback: "crash"
   apmEnabled: true
