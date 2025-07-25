@@ -59,30 +59,6 @@ nodes:
     image:
       tag: "23b906d"
 
-  - nodeType: archive
-    nodeNumber: 2
-    hostname: archive2.nodes.omega.towns.com
-    runMode: archive
-    standbyOnStart: false
-    dbUser: archive2
-    ddTags: "env:omega, service: river-node, mode: archive, node_url: https://archive2.nodes.omega.towns.com"
-    nodeUrl: https://archive2.nodes.omega.towns.com
-    migrationStatus: done
-    image:
-      tag: "23b906d"
-
-  - nodeType: archive
-    nodeNumber: 3
-    hostname: archive3.nodes.omega.towns.com
-    runMode: archive
-    standbyOnStart: false
-    dbUser: archive3
-    ddTags: "env:omega, service: river-node, mode: archive, node_url: https://archive3.nodes.omega.towns.com"
-    nodeUrl: https://archive3.nodes.omega.towns.com
-    migrationStatus: done
-    image:
-      tag: "23b906d"
-
 race: false
 
 logLevel: info
