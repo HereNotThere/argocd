@@ -16,7 +16,7 @@ chains:
 
 notificationService:
   image:
-    tag: "0758fbf"
+    tag: "notification-debug"
   resources:
     limits:
       cpu: 6.0
@@ -29,7 +29,7 @@ notificationService:
 
 notificationSendit:
   image:
-    tag: "ee42a0d"
+    tag: "notification-debug"
   resources:
     limits:
       cpu: 2.0
